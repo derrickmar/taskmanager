@@ -1,4 +1,8 @@
 TaskManager::Application.routes.draw do
+  root 'static_pages#home'
+  match '/help',  to: 'static_pages#help',  via: 'get'
+  match '/about',  to: 'static_pages#about',  via: 'get'
+
   get "contacts/new"
   get "contacts/create"
   get "tags/new"
@@ -33,11 +37,6 @@ TaskManager::Application.routes.draw do
   # for e-mail contact action
   match '/contacts', to: 'contacts#new',  via: 'get'
   resources "contacts", only: [:new, :create]
-
-  root 'static_pages#home'
-  match '/help',  to: 'static_pages#help',  via: 'get'
-  match '/about',  to: 'static_pages#about',  via: 'get'
-
 
   match '/signup', to: 'user#new', via: 'get'
   get "users/new"
