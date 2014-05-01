@@ -22,8 +22,9 @@ doc/
 .DS_Store
 .idea
 .secret
-.txt
-.mp4
+*.txt
+*.mp4
+*.odt
 .docx
 /path/
 # Ignore application configuration
