@@ -237,6 +237,7 @@ function checkPosition() {
             extendSpecialDivTasks($('.specialdaydiv').height(), $('.tagdiv').height());
         }
         repositiontoggleTagDiv();
+        // is this resizing vid?
         resizeVid($('.intro-video').width());
     } else {
         console.log("lg breakpoint");
