@@ -4,9 +4,7 @@ var counter = 0;
 
 $(document).ready(function() {
 
-
-     0.5625
-
+    // resize the height of the video accordingly
 
     $('.tasks').hover(function() {
         $('.tasks').removeAttr('title');
