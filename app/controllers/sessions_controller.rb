@@ -4,7 +4,8 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		user = User.find_by(email: params[:session][:email].downcase)
+		@email = params[:session][:email].downcase.strip
+		user = User.find_by(email: @email)
 		if user && user.authenticate(params[:session][:password])
 			sign_in user
 			# if there is a session[:return_to] stored then go to that instead
