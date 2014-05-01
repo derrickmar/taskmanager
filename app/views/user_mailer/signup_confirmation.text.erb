@@ -1,5 +1,5 @@
-<%= @user.name %>,
+Hello <%= @user.name %>,
 
-Thank you for signing up.
+Thank you for signing up for TaskSimply. Were glad to have you on board!
 
-<%= user_url(@user) %>
+<%= next_seven_days_user_path(@user.id) %>

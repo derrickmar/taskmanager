@@ -121,7 +121,7 @@ class UsersController < ApplicationController
 			UserMailer.signup_confirmation(@user).deliver
 			sign_in @user
 			flash[:success] = "Welcome to the Task Manager!"
-			redirect_to @user
+      		redirect_to next_seven_days_user_path(@user.id)
 		else
 			render 'new'
 		end
