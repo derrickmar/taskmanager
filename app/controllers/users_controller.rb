@@ -20,8 +20,8 @@ class UsersController < ApplicationController
 		# puts params[:user][:number]
 		# puts params.require(:user).permit(:number)
 		@user = User.find(params[:id])
-		@number = params[:user][:number]
-		if @user.update_attributes(number: params[:user][:number])
+		@number = params[:user][:number].strip
+		if @user.update_attributes(number: @number)
 			@failed = false
 			respond_to do |format|
 				format.html { render 'edit' }
@@ -111,6 +111,9 @@ class UsersController < ApplicationController
 
 	def create
 		puts "IN CREATE ACTION OF USERS"
+		params[:user][:email] = params[:user][:email].strip
+		params[:user][:name] = params[:user][:name].strip
+		params[:user][:number] = params[:user][:number].strip
 		puts params
 		@user = User.new(user_params)
 		if @user.save
@@ -141,6 +144,8 @@ class UsersController < ApplicationController
 
 	# does the update action when form is submitted
 	def update
+		params[:user][:email] = params[:user][:email].strip
+		params[:user][:name] = params[:user][:name].strip
 		if @user.update_attributes(user_params)
 			flash[:success] = "Profile updated"
 			redirect_to edit_user_path
