@@ -1,6 +1,7 @@
 var is_next_seven;
 
 $(document).ready(function() {
+    resizeVid($('.intro-video').width());
 
     if ($('#today_btn').text().indexOf("Today") != -1) {
         is_next_seven = true;
