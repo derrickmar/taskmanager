@@ -4,22 +4,9 @@ var counter = 0;
 
 $(document).ready(function() {
 
-    console.log("SIZE OF BROWSER");
-    console.log("width: " + $(window).width());
-    console.log("height: " + $(window).height());
 
-    window.resizeTo(1201, 675);
+     0.5625
 
-    // fixTaskHoverIssues($('.tasks'));
-
-    // for tooltips on task description
-    // $('.tasks').tooltip({
-    //     'delay': {
-    //         show: 1500,
-    //         hide: 100
-    //     },
-    //     'title': "Click and drag to move, double click to edit task"
-    // });
 
     $('.tasks').hover(function() {
         $('.tasks').removeAttr('title');

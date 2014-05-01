@@ -98,6 +98,10 @@ $(document).ready(function() {
 
 });
 
+function resizeVid(w) {
+    $('.intro-video').height(w * 0.5625);
+}
+
 
 // repositions the toggleTagDiv if it's not in xs breakpoint
 
@@ -198,11 +202,7 @@ function changeViewToToday() {
 }
 
 function checkPosition() {
-    // console.log("In checkPosition");
-    // var iw = $(document).width();
-    // console.log(iw);
     if ($('#desktopTest3').is(':hidden')) {
-        // changeTextBtn("Today", "Hide", "Next Seven", "Show");
         repositionToggleTagDivOnXS();
         console.log("xs breakpoint");
         removeExtension($('.specialdaydiv'));
@@ -210,6 +210,7 @@ function checkPosition() {
         $('#toggleTagDiv').removeClass('hidden');
         console.log("removing more-padding-left from home-features");
         $('#home-features').removeClass('more-padding-left');
+        resizeVid($('.intro-video').width());
     } else if ($('#desktopTest').is(':hidden') || $('#desktopTest2').is(':hidden')) {
         console.log("adding more-padding-left from home-features");
         $('#home-features').addClass('more-padding-left');
@@ -235,6 +236,7 @@ function checkPosition() {
             extendSpecialDivTasks($('.specialdaydiv').height(), $('.tagdiv').height());
         }
         repositiontoggleTagDiv();
+        resizeVid($('.intro-video').width());
     } else {
         console.log("lg breakpoint");
         $('#home-features').addClass('more-padding-left');
@@ -251,5 +253,6 @@ function checkPosition() {
             extendSpecialDivTasks($('.specialdaydiv').height(), $('.tagdiv').height());
         }
         repositiontoggleTagDiv();
+        resizeVid($('.intro-video').width());
     }
 }
