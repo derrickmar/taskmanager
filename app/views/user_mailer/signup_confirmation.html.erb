@@ -2,4 +2,4 @@
 
 <p>Thank you for signing up for the TaskSimply. Were glad to have you on board!</p>
 
-<p><%= link_to "Go to TaskSimply", root_url %></p>
+<p><%= link_to "Go to tasks", root_url + next_seven_days_user_path(@user.id)%></p>
