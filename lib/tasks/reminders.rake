@@ -1,6 +1,6 @@
  desc "Remind people by sms"
   task :remind_sms => :environment do
-    puts "in rake!"
+    puts "in rake remind_sms!"
     Time.zone = 'America/Los_Angeles'
     d = Time.now
 
@@ -15,15 +15,10 @@
                                        TaskManager::Application.config.twilio_token)
 
     tasks.each do |t|
-      #puts "Reminding %s of %s" % [u.phone_number, e.title]
-      # body = "Event at %s in %s:\n%s" % [ e.start_at.in_time_zone(Time.zone)
-      #                                       .strftime('%I:%M %P'),
-      #                                     e.location,
-      #                                   e.title ]
-      body = t.description
+      body = "Reminder: " + t.description
       puts t.description
       number = User.find(t.day.user_id).number
-      puts number
+      puts "sending reminder to: " +  number
       @client.account.messages.create(:body => body,
                   :to => number,
                   :from => TaskManager::Application.config.twilio_phone_number)
