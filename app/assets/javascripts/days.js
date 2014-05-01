@@ -2,7 +2,6 @@ var is_next_seven;
 
 $(document).ready(function() {
     console.log("DAY.JS");
-    resizeVid($('.intro-video').width());
 
     if ($('#today_btn').text().indexOf("Today") != -1) {
         is_next_seven = true;
