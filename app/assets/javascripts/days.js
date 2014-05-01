@@ -204,6 +204,7 @@ function changeViewToToday() {
 
 function checkPosition() {
     if ($('#desktopTest3').is(':hidden')) {
+        resizeVid($('.intro-video').width());
         repositionToggleTagDivOnXS();
         console.log("xs breakpoint");
         removeExtension($('.specialdaydiv'));
@@ -211,8 +212,8 @@ function checkPosition() {
         $('#toggleTagDiv').removeClass('hidden');
         console.log("removing more-padding-left from home-features");
         $('#home-features').removeClass('more-padding-left');
-        resizeVid($('.intro-video').width());
     } else if ($('#desktopTest').is(':hidden') || $('#desktopTest2').is(':hidden')) {
+        resizeVid($('.intro-video').width());
         console.log("adding more-padding-left from home-features");
         $('#home-features').addClass('more-padding-left');
         console.log("md or sm breakpoint");
@@ -237,9 +238,8 @@ function checkPosition() {
             extendSpecialDivTasks($('.specialdaydiv').height(), $('.tagdiv').height());
         }
         repositiontoggleTagDiv();
-        // is this resizing vid?
-        resizeVid($('.intro-video').width());
     } else {
+        resizeVid($('.intro-video').width());
         console.log("lg breakpoint");
         $('#home-features').addClass('more-padding-left');
         $('#toggleTagDiv').addClass('hidden');
@@ -255,6 +255,5 @@ function checkPosition() {
             extendSpecialDivTasks($('.specialdaydiv').height(), $('.tagdiv').height());
         }
         repositiontoggleTagDiv();
-        resizeVid($('.intro-video').width());
     }
 }
