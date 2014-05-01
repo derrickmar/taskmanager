@@ -100,6 +100,7 @@ $(document).ready(function() {
 
 function resizeVid(w) {
     $('.intro-video').height(w * 0.5625);
+    console.log("resizing vid");
 }
 
 
