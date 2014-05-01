@@ -20,4 +20,4 @@ Hello <%= @user.name.split[0] %>,
 	<% @counter += 1 %>
 <% end %>
 
-<%= user_url(@user) %>
+<%= root_url + next_seven_days_user_path(@user.id) %>

@@ -2,4 +2,4 @@ Hello <%= @user.name %>,
 
 Thank you for signing up for TaskSimply. Were glad to have you on board!
 
-<%= root_url %>
+<%= root_url + next_seven_days_user_path(@user.id) %>

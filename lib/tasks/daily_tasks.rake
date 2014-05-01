@@ -8,7 +8,7 @@
   users = User.all 
 
   users.each do |user|
-    if user.settings(:settings).daily_email == "true"
+    if user.settings(:settings).daily_email.to_s == "true"
       puts user.name + " is opting for daily emails"
       UsersHelper.set_overdue_tasks(user.id)
       today_tasks = user.days.where(date: Date.today).first.tasks
@@ -16,6 +16,7 @@
       UserMailer.daily_tasks(user, today_tasks, array_of_overdue).deliver
     else 
       puts user.name + " is not opting for daily emails"
+      puts "because email settings is " + user.settings(:settings).daily_email.to_s
     end
   end
 end

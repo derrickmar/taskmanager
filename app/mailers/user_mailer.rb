@@ -18,7 +18,7 @@ class UserMailer < ActionMailer::Base
     @user = user
     @today_tasks = today_tasks
     @overdue_tasks = overdue_tasks
-    mail to:  "#{user.name} <#{user.email}>", subject: "Task Manager Daily Update"
+    mail to:  "#{user.name} <#{user.email}>", subject: "TaskSimply Daily Update"
   end
 
   def email_reminder(user, task)
