@@ -1,0 +1,26 @@
+<div>
+	<div class="input-group input-group-sm tag-filter-search">				
+		<%= text_field_tag "search-tags", nil, class: "form-control border-none", placeholder:"Filter labels" %>
+		<span class="input-group-addon border-none">
+					<i class="glyphicon glyphicon-search"></i>
+		</span>
+	</div>
+
+	<div class="tagform" >
+	  <div id="tag-search-holder">
+			<% @tags.each do |tag| %>
+			<!-- Important that there are no spaces in front or back of div content! We use .text()
+			to compare in _create_existing.js.erb -->
+				<div class="tag-search-desc" style="background-color: <%= tag.color %>"><%= tag.name %></div>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<div class="no-tag-filter">
+	<div class="horz-center">
+		<span class="ib text-small"> Include tasks w/ no tags </span>
+		<%= check_box("tag", "validated", class: "no-tags-checkbox clicked", 
+		data: { userid: current_user.id, sett: current_user.settings(:settings).no_tags_shown } ) %>
+	</div>
+</div>

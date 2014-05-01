@@ -1,0 +1,57 @@
+<!-- <i class="glyphicon glyphicon-chevron-up"></i> -->
+
+<div class="attributes hidden" data-view="<%= @user.settings(:settings).view %>"
+	data-comp="<%= @user.settings(:settings).completed_hidden %>">
+</div>
+
+<span class="ib notice" style="display: none;">
+		<span class="smsdesc"> Please enter your phone number to receive reminders through sms </span>
+	  <%= form_for(@user, url: number_user_path(@user), html: { class: 'form-inline smsformstyle', role: 'form' }, remote: true) do |f| %>
+	    <%= render 'shared/error_messages' %>
+
+	    <div class="form-group">
+	    <%= f.text_field :number %>
+	    </div>
+	    <button class="save-sms btn-xs btn-default" name="commit" type="submit"> Save </button>
+	  <% end %>
+	  <span class="x-button ib"> </span>
+	  <div>
+	    <p class="updated hidden"> Updated! </p>
+		</div>
+</span>
+
+<div class="icon-time"> </div>
+<%= render 'shared/error_messages' %>
+
+<div class="holder-tagdiv-xs row">
+	<button type="button" id="toggleTagDiv" class="btn hidden" data-user="<%=@user.id%>"> Show Tag Filter Form </button>
+ </div>
+
+<div class="overflow">
+	<div class="row">
+		<div class="holder1">
+			<%= render "users/daydiv", object: @curr_day = @first_day,
+			object: @today = "today", object: @col = 3 %>
+			<%= render "users/daydiv", object: @curr_day = @second_day, object: @today = "tomorrow" %>
+			<%= render "users/special_daydiv", object: @curr_day = @third_day, object: @today = "third_day" %>
+		</div>
+			<!-- <div class="clearfix visible-lg"></div> -->
+			<div class="holder-tagdiv" >
+				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 tagdiv">
+					<button type="button" id="today_btn" class="btn view_options" data-user="<%=@user.id%>">Today View</button>
+					<button type="button" id="show_completed"
+					class="btn toggle_completed view_options" data-user="<%=@user.id%>">Hide Completed Tasks</button>
+					<%= render "users/tagform" %>
+				</div>
+			</div>
+	</div>
+</div>
+
+<div class="overflow">
+	<div class="holder2 row">
+		<%= render "users/daydiv", object: @curr_day = @fourth_day, object: @col = 3, object: @today = "not_today" %>
+		<%= render "users/daydiv", object: @curr_day = @fifth_day %>
+		<%= render "users/daydiv", object: @curr_day = @sixth_day %>
+		<%= render "users/daydiv", object: @curr_day = @seventh_day %>
+	</div>
+</div>

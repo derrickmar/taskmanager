@@ -1,0 +1,58 @@
+<% provide(:title, "Edit user") %>
+<!-- @user implied patch method with edit because we are changing an existing user -->
+<div class="row">
+	<div class="col-sm-5 col-sm-offset-1 col-xs-12">
+		<h1 class="settings-header">Update your profile</h1>
+		<%= render 'shared/error_messages' %>
+		<%= form_for(@user, html: { multipart: true, class: 'form-inline' }) do |f| %>
+		<div class="pp-holder">
+			<%= image_tag @user.avatar.url(:medium), class: "profile_pic" %>
+			<div class="move-pp-upload">
+				<%= f.label :profile_picture %>
+				<%= f.file_field :avatar %>
+			</div>
+		</div>
+
+		<div style="clear: both;"></div>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+
+		<%= f.label :password_confirmation, "Confirm Password" %>
+		<%= f.password_field :password_confirmation %>
+
+
+		<%= f.submit "Save changes", class: "btn btn-large btn-primary signup_btn2", style: "margin-top: 30px;" %>
+		<% end %>
+
+		<%= link_to('Delete Account', user_path, type: "button", class: "pull-right link", data: { confirm: 'Are you sure you want to delete account?', disable_with: 'loading...' }) %>
+
+	</div>
+
+	<div class="col-sm-3 col-sm-offset-1 col-xs-12">
+		<h1 class="settings-header">Reminders</h1>
+		<%= form_for(@user, url: number_user_path(@user)) do |f| %>
+		<%= render 'shared/sms_error_messages' %>
+		<%= f.label :number %>
+		<%= f.text_field :number, class: "input-small", placeholder:"Enter a number" %>
+
+		<%= f.submit "Save changes", class: "btn signup_btn2", style: "margin-top: 10px;" %>
+		<% end %>
+   <%= link_to "Send a test message", twilio_message_path, class: "link testsms pull-right", method: :post %>
+
+
+		<div class="email-holder" data-userid=<%= @user.id %> data-dailyemail="<%= @user.settings(:settings).daily_email %>">
+			<div class="email-wrap">    
+				<label for="recieve">
+					<input id="recieve_email" name="recieve_email" type="checkbox" value="true" class="checkbox">
+					Recieve daily e-mail reminders of today's and overdue tasks
+				</label>
+			</div>
+		</div>
+
+	</div>

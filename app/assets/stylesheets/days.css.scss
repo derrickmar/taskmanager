@@ -1,0 +1,61 @@
+.overflow {
+	display: flex;
+}
+
+.days {
+	min-height: 70px;
+	margin-top: 8px;
+	padding-bottom: 50px;
+
+	// height: calc(100% + 200px) !important;
+	// height: -webkit-calc(100% + 200px) !important;
+}
+
+.day-name {
+	-webkit-backface-visibility: hidden;
+}
+
+.smallerDayName {
+	font-size: 17px;
+	position: relative;
+	top: 4px;
+}
+
+.view_options {
+	width: 100%;
+	margin-bottom: 5px !important;
+	background-color: #4C2F2E !important;
+	color: #EBE5CE !important;
+	border: none !important;
+	-webkit-transition: -webkit-transform 0.3s ease-in-out !important;
+	-moz-transition: -moz-transform 0.3s ease-in-out !important;
+	-ms-transition: -ms-transform 0.3s ease-in-out !important;
+	-o-transition: -o-transform 0.3s ease-in-out !important;
+}
+
+#toggleTagDiv {
+	margin-bottom: 20px !important;
+	background-color: #4C2F2E !important;
+	color: #EBE5CE !important;
+	border: none !important;
+	-webkit-transition: -webkit-transform 0.3s ease-in-out !important;
+	-moz-transition: -moz-transform 0.3s ease-in-out !important;
+	-ms-transition: -ms-transform 0.3s ease-in-out !important;
+	-o-transition: -o-transform 0.3s ease-in-out !important;
+}
+
+.view_options:focus, .signup_btn:focus #toggleTagDiv:focus {
+	outline-color: #19A2AE!important;
+  	box-shadow: 0 0 5px  !important;
+ 	border: 1px solid #19A2AE !important;
+}
+
+.view_options:hover, .signup_btn:hover, #toggleTagDiv:hover {
+	transform:scale(1.03);
+	-ms-transform:scale(1.03); /* IE 9 */
+	-moz-transform:scale(1.03); /* Firefox */
+	-webkit-transform:scale(1.03); /* Safari and Chrome */
+	-o-transform:scale(1.03); /* Opera */
+}
+
+

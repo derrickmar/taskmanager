@@ -1,0 +1,17 @@
+if ('true' == '<%= @task.important %>') {
+	console.log("got here true");
+	$('#new_id_<%= @task.id %>').css({ 'border': '2px solid red'});
+	$('#importanthf' + '<%= @task.id %>').val(false);
+	<% if @task.day_id ==  @day.id %>
+		$('#new_id_<%= @task.id %>').find('.status').text('IMPORTANT');
+	<% end %>
+} else {
+	console.log("got here false");
+	<% if @task.day_id ==  @day.id %>
+		$('#new_id_<%= @task.id %>').css({ 'border': '2px solid #19A2AE'});
+		$('#new_id_<%= @task.id %>').find('.status').text('');
+	<% else %>
+		$('#new_id_<%= @task.id %>').css({ 'border': 'none'});
+	<% end %>
+	$('#importanthf' + '<%= @task.id %>').val(true);
+}

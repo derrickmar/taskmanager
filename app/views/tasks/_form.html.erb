@@ -1,0 +1,15 @@
+<%= form_for([@curr_day, @curr_day.tasks.build], html: { id: "form" + @curr_day.id.to_s }, remote: true) do |f| %>
+
+
+<%= f.text_area :description, class: "initial-input", placeholder: "New Task:" %>
+
+<input class="hidden" type="checkbox" id="task_important<%= @curr_day.id %>" name="task[important]" value="1">
+
+<!-- <input class="image_cb" id="task_important" name="task[important]" type="checkbox" value="1"> -->
+
+
+<%= f.hidden_field :day_id, value: @curr_day.id %>
+<%= f.hidden_field :due_at, id: "due_at_hd" + @curr_day.id.to_s %>
+
+<%= f.submit "Create task", class: "new_task_create hidden" %>
+<% end %>

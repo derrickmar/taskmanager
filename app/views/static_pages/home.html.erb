@@ -1,0 +1,36 @@
+<% provide(:title, 'Home') %>
+
+<div class="container" style="margin-top: 25px;">
+	<div class="row">
+			<video class="col-md-8 col-xs-12 intro-video" controls style="margin-bottom: 25px;">
+			  <source src="<%= asset_path('final5.mp4') %>" type="video/mp4">
+			</video>
+			<div id="home-features" class="col-md-4 col-xs-12 more-padding-left">
+					<span class="glyphicon glyphicon-check homeicon"> </span>
+					<span class="home-title"> Create tasks </span>
+					<p class="home-desc">  Write down what needs to get done for the day. Get informed when tasks are overdue. </p>
+					<span class="glyphicon glyphicon-time homeicon"> </span>
+					<span class="home-title"> Reminders </span>
+					<p class="home-desc">  Get reminders via e-mail and mobile text message. </p>
+					<span class="glyphicon glyphicon-fullscreen homeicon"> </span>
+					<span class="home-title"> Mobile Responsive </span>
+					<p class="home-desc">  Use TaskSimply on your smartphone for quick and easy access on the go. </p>
+					<span class="glyphicon glyphicon-tag homeicon"> </span>
+					<span class="home-title"> Labels </span>
+					<p class="home-desc">  Put tasks into context with labels. </p>
+
+        	<% if signed_in? %>
+        		<%= link_to "Go to your tasks!", next_seven_days_user_path(current_user.id), class: "btn signup_btn" %>
+        	<% else %>
+					 <%= link_to "Sign up now!", signup_path, class: "btn signup_btn" %>
+					<% end %>
+			</div>
+	</div>
+
+<!-- 	<div class="row">
+		<h1> It's simple. It's free </h1>
+	</div> -->
+
+
+</div>
+

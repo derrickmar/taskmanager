@@ -1,0 +1,102 @@
+<% @task = task %>  
+<%= render "tags/all_tags_on_task_container", object: @diff = "each_tag", :task => @task %>
+
+
+<div class="task_desc_holder">
+<span class="circle-border <%= @complete %> ib" id="complete<%= task.id %>" title="Completion"> </span>
+<span class="task_text task_text<%= task.id %> <%= @style %>"><%= task.description.html_safe %></span>
+</div>
+
+
+<div class="holder">
+
+  <span class="input-append bootstrap-timepicker inline tp-exist-custom-pos">
+    <% if task.due_at == nil %>
+      <% @hidden = "hidden" %>
+    <% else %>
+      <% @hidden = "" %>
+    <% end %>
+    <input class="timepickerAllExist timepickerAfter input-small <%= @hidden %>" type="text"
+            id = "timepicker<%= task.id %>"
+            data-url="/days/<%= @curr_day.id %>/tasks/<%= task.id %>/time"
+            data-due-at=
+            <% if task.due_at != nil %>
+            "<%= task.due_at.strftime("%I:%M%p")+ " " +task.due_at.strftime("%P").upcase %>"
+            <% else %>
+            "NONE"
+            <% end %>
+            >
+    <span class="add-on add-on-custom-exist no-dueat" id="no-due-at<%= task.id %>"
+                  title="Set a reminder", data-number="<%= task.day.user.number %>">
+      <i class="imageclock" data-toggle="tooltip" data-placement="top"  data-trigger="manual" ></i>
+    </span>
+  </span>
+  <img src="<%= asset_path('more.png') %>" class="more" id="more<%= task.id %>" data-id="<%= task.id %>">
+  <div class="more-popup hidden" data-sprites="<%= @curr_day.id %>">
+    <div class="form">
+      <%= form_for([@curr_day, task], url: important_day_task_path(@curr_day, task),
+          html: { method: "patch", class: "important_form" },
+          remote: true) do |f| %>
+        <%= f.hidden_field :important, id: "importanthf" + task.id.to_s, value: @importance %>
+        <%= f.submit "Important?", type: :image, src: asset_path('exclamation.png'),
+          class: "exclamation-exist " + @opacity, title: "Priority" %>
+      <% end %>
+    </div>
+    <%= link_to " ", url = { day_id: @curr_day.id, id: task.id, action: :gcal, method: :get, controller: "tasks" }, html = { class: "calendar", id:"calendar+task.id", title: "Add to Google Calendar", target: "_blank" } %>
+    <div class="form">
+      <%= form_for([@curr_day, task], url: email_day_task_path(@curr_day, task),
+          html: { method: "patch", remote: true } ) do |f| %>
+        <%= f.hidden_field :email, id: "emailhf" + task.id.to_s, value: !task.email %>
+        <% if !task.email %>
+          <%= f.submit "Email", type: :image, class: "mail mailOpacity",
+          src: asset_path('mail.png'), title: "Email Reminder" %>
+        <% else %>
+          <%= f.submit "Email", class: "mail mailOpacity opacity_full", title: "Email Reminder" %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <!-- <div class="mail"> </div> -->
+    <% if task.day_id == @curr_day.id %>
+      <%= link_to " ", [@curr_day, task], method: :delete, class: "trash",
+            title: "Delete", remote: true %>
+    <% else %>
+      <%= link_to " ", [Day.find(task.day_id), task], method: :delete, class: "trash",
+            title: "Delete", remote: true %>
+    <% end %>
+  </div>
+</div>
+
+<div class="status"> 
+  <% if @typer == "OVERDUE!" %>
+      <%= form_for([@curr_day, task], url: remove_overdue_day_task_path(@curr_day, task),
+          html: { method: "patch"},
+          remote: true) do |f| %>
+        <%= f.hidden_field :overdue, value: false %>
+        <span> <%= @typer %> </span>
+        <span class="glyphicon glyphicon-remove ib overdue-x"> </span>
+        <%= f.submit "", class: "overdue-submit hidden", confirm: "Are you sure you want to put off this task?" %>
+      <% end %>
+  <% else %>
+    <%= @typer %>
+  <% end %>
+</div>
+
+
+<div class="add_labels_div hidden">
+  <h6 class="add_labels_title"> Add labels: </h6>
+  <!-- <p class="add_labels_x_button"> x </p> -->
+  <%= form_for(Tag.new, html: { class: "labels_form", id: "tag_form" + task.id.to_s }, remote: true) do |f| %>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :task_id, value: task.id %>
+
+  <%= f.text_field :name, class: "labels_div_inp", placeholder: "Add a tag..." -%>
+  <% end %>
+
+  <h6 class="add_labels_title"> Labels: </h6>
+  <div style="margin-left: 10px;">
+    <%= render "tags/all_tags_on_task_container", object: @diff = "each_tag2", :task => @task %>
+  </div>    
+</div>
+

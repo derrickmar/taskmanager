@@ -1,0 +1,65 @@
+<% provide(:title, 'Contact') %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5 col-xs-12">
+    <h1 class="no-top-margin">Questions or concerns?</h2>
+      <%= simple_form_for @contact do |f| %>
+        <%= f.input :name, :required => true, label_html: { class: "contact_form_label" } %>
+        <%= f.input :email, :required => true, label_html: { class: "contact_form_label" }%>
+        <%= f.input :message, :as => :text, :required => true, label_html: { class: "contact_form_label" }, input_html: { rows: 11 } %>
+        <div class= "hidden">
+          <%= f.input :nickname, :hint => 'Leave this field blank!'  %>
+        </div>
+        <div>
+          </br>
+          <%= f.button :submit, 'Send message', class: "btn signup_btn2" %>
+        </div>
+      <% end %>
+
+      <div style="margin-bottom: 30px !important;" >Or contact us directly at 
+        <a href="mailto:tasksimply@gmail.com" class="link" target="_blank">tasksimply@gmail.com</a>!
+      </div>
+
+    </div>
+
+    <div class="col-sm-7 col-xs-12 more-padding-left">
+      <h1 class="no-top-margin">About the project</h1>
+    <h3> What </h3>
+    <p>
+      TaskSimply is a web application that helps you keep track of what you need to get done.
+It was created to provide a free alternative to other task management services.  The intuition behind the project was to provide only the most used features in a task management system in order to make it simple and easy to use. 
+    </p>
+
+    <h3> Who </h3>
+      <%= link_to( image_tag(asset_path('derrick.jpg'), height: '90', width:'90', class: "who"), "https://www.facebook.com/derricklmar", target:"_blank", class:"pull-left personal-image") %>
+      <span>
+        <%=link_to("Derrick Mar", "https://www.facebook.com/derricklmar", target:"_blank", class:"link")%> is an undergraduate at UC Berkeley majoring in Business and Computer Science. This is his first complete web application. His plans in the future is to develop a web application that helps solve social issues such as poverty. </span>
+      <div style="clear: both;"></div>
+
+    <h3 > Technical Specs </h3>
+
+    <ul>
+      <li> <strong>Web Application Framework</strong>: <%= link_to("Ruby on Rails", "http://rubyonrails.org/", class:"link", target:"_blank") %></li>
+      <li> <strong>Libraries used</strong>: <%= link_to("jQuery", "http://jquery.com/", class:"link", target:"_blank") %>, <%= link_to("Bootstrap", "http://getbootstrap.com/", class:"link", target:"_blank") %>, <%= link_to("Saas", "http://sass-lang.com/", class:"link", target:"_blank") %></li>
+      <li> <strong>Deployment</strong>: <%= link_to("Heroku", "http://heroku.com/", class:"link", target:"_blank") %> </li>
+    </ul>
+
+    <h3> Special Thanks To </h3>
+    <p>
+    <%= link_to("Pierre Karashchuk", "https://www.facebook.com/pierre.karashchuk?fref=ts", class:"link", target:"_blank") %> for always being there for advice on Rails and life stuff.
+    </p>
+    <p>
+    <%= link_to("The Noun Project", "http://thenounproject.com/", class:"link", target:"_blank") %> for the awesome free icons.
+    </p>
+    <ul>
+      <li>  Edward Boatman for the email icon </li>
+      <li>  Javier Cabezas for the x and plus icon </li>
+      <li>  Pham Thi Dieu Linh for the more icon </li>
+      <li>  Berkay Sargin for the exclamation icon </li>
+      <li>  Shivang Joshi for the clock icon </li>
+      <li>  Yair Cohen for the calendar icon </li>
+    </ul>
+    <p> And of course all the developers who created the libraries and gems to make any part of this project possible.   </p>
+    </div>
+  </div>
+</div>

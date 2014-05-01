@@ -1,0 +1,53 @@
+@import "bootstrap";
+
+$grayLight: #999;
+/* Users index */
+
+.inline {
+	display: inline;
+}
+
+.users {
+	list-style: none;
+	margin: 0;
+	li {
+		overflow: auto;
+		padding: 10px 0;
+		border-top: 1px solid $grayLight;
+		&:last-child {
+			border-bottom: 1px solid $grayLight;
+		}
+	}
+}
+
+.profile_pic {
+	height: 90px;
+	width: 90px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+}
+
+.profile_pic_header {
+	height: 40px;
+	width: 40px;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	// margin-right: 8px !important;
+}
+
+.move-pp-upload {
+	position: relative;
+	top: -70px;
+	left: 100px;
+}
+
+.pp-holder {
+	height: 100px;
+}
+
+.settings-header {
+	margin-top: 0px;
+	margin-bottom: 30px;
+}

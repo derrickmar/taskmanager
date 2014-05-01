@@ -1,0 +1,256 @@
+@import "bootstrap";
+
+@mixin box_sizing {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+	width: 100%;
+}
+
+body {
+	overflow-x:hidden;
+	padding-top: 70px;
+	background-color: #EBE5CE !important;
+	color: #4C2F2E !important;
+}
+
+.footer {
+	height: 30px;
+}
+
+/* header */
+
+.account {
+	padding: 5px 15px !important;
+}
+
+.all-days {
+	padding-top: 10px;
+	padding-left: 30px !important;
+	padding-right: 30px !important;
+}
+
+.custom-navbar {
+	background-color: #4C2F2E !important;
+	padding: 0px 10px !important;
+}
+
+.a-head {
+	color: #EBE5CE !important;
+}
+
+.a-head:hover {
+	color: #4C2F2E !important;
+	background-color: #EBE5CE !important;
+}
+
+.a-head:focus {
+	color: #4C2F2E !important;
+	background-color: #EBE5CE !important;
+}
+
+.dropdown-menu-header {
+	background-color: #4C2F2E !important;
+}
+
+.divider {
+	background-color: #EBE5CE !important;
+}
+
+
+#logo {
+	font-family:"Georgia", Times, serif !important;
+	font-size: 1.7em;
+	color: #EBE5CE;
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 1;
+	&:hover {
+		color: #DFDBC3;
+		text-decoration: none;
+	}
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+	font-family:"Georgia", Times, serif !important;
+}
+
+/* home page CSS */
+.homeicon {
+	font-size: 32px;
+	// height: 50px;
+	// width: 100%;
+}
+
+.home-title {
+	font-family:"Georgia", Times, serif !important;
+	font-size: 28px;
+	position: relative;
+	top: -4px;
+	margin-left: 5px;
+}
+
+.home-desc {
+	font-size: 16px;
+	margin-bottom: 18px;
+}
+
+.more-padding-left {
+	padding-left: 30px !important;
+}
+
+.intro-video {
+	border: 4px solid #4C2F2E;
+	padding: 0px !important;
+	// margin: 0px 15px 0px 0px;
+}
+
+.signup_btn {
+	width: 100%;
+	height: 40px;
+	font-size: 20px !important;
+	margin-bottom: 5px !important;
+	background-color: #19A2AE !important;
+	color: white !important;
+	border: none !important;
+	margin-top: 7px;
+	-webkit-transition: -webkit-transform 0.3s ease-in-out !important;
+	-moz-transition: -moz-transform 0.3s ease-in-out !important;
+	-ms-transition: -ms-transform 0.3s ease-in-out !important;
+	-o-transition: -o-transform 0.3s ease-in-out !important;
+}
+
+/* signup page */
+.quote {
+	margin-top: 50px;
+	font-style:italic;
+	margin-bottom: 0px;
+}
+
+.christina {
+	font-style:italic;
+}
+
+.row-same-height {
+	display: table !important;
+}
+
+.col-same-height {
+    float: none !important;
+    display: table-cell !important;
+    vertical-align: top !important;
+}
+
+.signup_btn2 {
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 5px !important;
+	background-color: #19A2AE !important;
+	color: white !important;
+	border: none !important;
+}
+
+.signup_btn2:hover {
+	transform:scale(1.03);
+	-ms-transform:scale(1.03); 
+	-moz-transform:scale(1.03); 
+	-webkit-transform:scale(1.03); 
+	-o-transform:scale(1.03	);
+	-webkit-transition: -webkit-transform 0.3s ease-in-out !important;
+	-moz-transition: -moz-transform 0.3s ease-in-out !important;
+	-ms-transition: -ms-transform 0.3s ease-in-out !important;
+	-o-transition: -o-transform 0.3s ease-in-out !important;
+}
+
+/* contact page */
+.bold {
+	font-weight: bold;
+}
+
+.link {
+	color: #4C2F2E !important;
+	text-decoration: underline !important;
+}
+
+.link:hover {
+	color: #428bca !important;
+}
+
+.who {
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+}
+
+.who:hover {
+	cursor: pointer;
+	transform:scale(1.01);
+	-ms-transform:scale(1.01); 
+	-moz-transform:scale(1.01); 
+	-webkit-transform:scale(1.01); 
+	-o-transform:scale(1.01);
+	-webkit-transition: -webkit-transform 0.3s ease-in-out !important;
+	-moz-transition: -moz-transform 0.3s ease-in-out !important;
+	-ms-transition: -ms-transform 0.3s ease-in-out !important;
+	-o-transition: -o-transform 0.3s ease-in-out !important;
+}
+
+.personal-image {
+	margin-right: 15px;
+}
+
+.clear {
+	clear: both;
+}
+
+
+
+/* forms */
+input, textarea, select, .uneditable-input {
+	// border: 1px solid #bbb;
+	width: 100%;
+	// margin-bottom: 15px;
+	@include box_sizing;
+}
+
+/** templates */
+
+input[type=text], input[type=email], input[type=password], textarea {
+  -webkit-transition: border 0.30s ease-in-out, box-shadow 0.30s ease-in-out;
+  -moz-transition: border 0.30s ease-in-out, box-shadow 0.30s ease-in-out;
+  -ms-transition: border 0.30s ease-in-out, box-shadow 0.30s ease-in-out;
+  -o-transition: border 0.30s ease-in-out, box-shadow 0.30s ease-in-out;
+  outline: none;
+  // padding: 3px 0px 3px 3px;
+  // margin: 5px 1px 3px 0px;
+  border: 1px solid #DDDDDD;
+}
+ 
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, textarea:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+/* errors */
+#error_explanation {
+	color: #f00;
+	ul {
+		list-style: none;
+		margin: 0 0 18px 0;
+	}
+}
+
+.field_with_errors {
+	@extend .has-error
+}
+
+/* to center bootstrap columns */
+.col-centered{
+	float: none;
+	margin: 0 auto;
+}

@@ -1,0 +1,31 @@
+console.log("in create.js.erb for tags!");
+console.log("<%= @task_to_associate.id %>")
+var cls = ".tagsdiv" + "<%= @task_to_associate.id %>";
+console.log(cls);
+
+var container = '<%= j render("each_tag", :tag => @tag, :task => @task_to_associate) %>';
+$(cls).removeClass('hidden');
+$(cls).append(container);
+
+var each_tag_container = ".each_tag_container<%= @tag.id %>_<%= @task_to_associate.id %>"
+$(each_tag_container).each(function() {
+	//console.log("MEEEEE");
+	var xbutton = $(this).children('.x-button-tag');
+	xbuttontagdelete($(xbutton));
+});
+
+// clearing form after submit
+console.log("clearing form");
+var tag_form = "#tag_form" + "<%= @task_to_associate.id %>";
+// console.log(tag_form);
+$(tag_form)[0].reset();
+
+var tagSearchDesc = '<div class="tag-search-desc ajax-filter-tag<%= @tag.id %>" style="background-color: <%= @tag.color %>"> <%= @tag.name %> </div>'
+$('#tag-search-holder').prepend(tagSearchDesc);
+
+filterClick($(".ajax-filter-tag<%= @tag.id %>"));
+
+
+// console.log($(cls).children().last().children('.x-button-tag'));
+// var xbutton = $(cls).children().last().children('.x-button-tag');
+// xbuttontagdelete($(xbutton));

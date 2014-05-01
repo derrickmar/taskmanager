@@ -1,0 +1,7 @@
+<% if !@user.errors.messages[:number].blank? %>
+<div id="error_explanation">
+	<div class="alert alert-danger">
+		Please enter a valid phone number
+	</div>
+</div>
+<% end %>

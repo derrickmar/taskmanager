@@ -1,0 +1,10 @@
+console.log("in number.js.erb");
+console.log(<%= @failed %>);
+if (!<%= @failed %>) {
+	$('.no-dueat').attr('data-number', '<%= @number %>');
+	$('.updated').html('Updated')
+	$('.updated').removeClass('hidden');
+} else {
+	$('.updated').html('Please enter a valid phone number')
+	$('.updated').removeClass('hidden');
+}

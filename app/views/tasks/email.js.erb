@@ -1,0 +1,17 @@
+if ('true' == '<%= @task.email %>') {
+	console.log("got here true in email.js.erb");
+	$('#emailhf' + '<%= @task.id %>').val(false);
+	if ("<%= @task.due_at %>" == "") {
+		console.log("YAYA");
+		console.log($('#new_id_' + '<%= @task.id %>').find('.imageclock'));
+		$('#new_id_' + '<%= @task.id %>').find('.imageclock').tooltip('show');
+		$(document).mouseup(function(e) {
+			$('#new_id_' + '<%= @task.id %>').find('.imageclock').tooltip('hide');
+			$(document).unbind('mouseup');
+		});
+	}
+} else {
+	console.log("got here false in email.js.erb");
+	$('#emailhf' + '<%= @task.id %>').val(true);
+	$('.imageclock').tooltip('hide');
+}

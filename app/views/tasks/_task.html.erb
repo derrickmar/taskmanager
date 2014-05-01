@@ -1,0 +1,53 @@
+<div class="tasks <%= @onlytoday %>" id="new_id_<%= task.id %>" style = "<%= @style %>"
+  data-toggle="tooltip" data-placement="top"  data-trigger="hover" data-id="<%= task.id %>"
+  data-url="/days/<%= task.day_id %>/tasks/<%= task.id %>"
+  data-ordering="/days/<%= task.day_id %>/tasks/update_ordering">
+
+  <span class="add_labels_plus plus-button ib"> </span>
+
+  <% @task = task %>
+  <% if task.important %>
+
+    <% if task.complete %>
+
+      <%= render "tasks/task_important_or_not", :task => @task,
+        object: @importance = true,
+        object: @style = "line-through",
+        object: @complete = "complete",
+        object: @opacity = "opacity_full",
+        object: @typer = @type %>
+
+    <% else %>
+
+    <%= render "tasks/task_important_or_not", :task => @task,
+        object: @importance = false,
+        object: @style = "",
+        object: @complete = "",
+        object: @opacity = "opacity_full",
+        object: @typer = @type %>
+    <% end %>
+
+
+    <!-- if task not important -->
+
+  <% else %>
+
+    <% if task.complete %>
+      <%= render "tasks/task_important_or_not", :task => @task,
+        object: @importance = true,
+        object: @style = "line-through ",
+        object: @complete = "complete",
+        object: @opacity = "",
+        object: @typer = @type  %>
+    <% else %>
+      <!-- link_to to make paragraph div complete -->
+      <%= render "tasks/task_important_or_not", :task => @task,
+        object: @importance = true,
+        object: @style = "",
+        object: @complete = "",
+        object: @opacity = "",
+        object: @typer = @type %>
+
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default navbar-fixed-top custom-navbar" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "TaskSimply", root_path, class: "navbar-brand", id: "logo" %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <% if signed_in? %>
+          <li><%= link_to "My Tasks", next_seven_days_user_path(current_user.id), class: "a-head" %></li>
+          <% end %>
+        <% if signed_in? %>
+          <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle a-head account" data-toggle="dropdown">
+            <%= image_tag current_user.avatar.url(:thumb), class: "profile_pic_header" %>
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-header">
+              <li><%= link_to "Settings", edit_user_path(current_user), class: "a-head" %></li>
+              <li><%= link_to "Contact/About", contacts_path, class: "a-head" %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Sign out", signout_path, method: "delete", class: "a-head" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Contact/About", contacts_path, class: "a-head" %></li>
+         <li><%= link_to "Sign in", signin_path, class: "a-head" %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

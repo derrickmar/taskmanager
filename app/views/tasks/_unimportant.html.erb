@@ -1,0 +1,6 @@
+  <%= form_for([@week, @task], url: important_day_task_path(@day, @task), 
+                html: { method: "patch", id: "unimportant_form" + @task.id.to_s },
+                remote: true) do |f| %>
+    <%= f.hidden_field :important, value:false %>
+    <%= f.submit "Unimportant?" %>
+  <% end %>

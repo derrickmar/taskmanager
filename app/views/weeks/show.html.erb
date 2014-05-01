@@ -1,0 +1,72 @@
+<h1>Week: <%= @week.id %></h1>
+	
+	<div class="days_bucket">
+		<div class="col-xs-3" >
+			<h2> Monday </h2>
+			<% @day = "Monday" %>
+			<!-- passing in @day to render -->
+			<%= render "tasks/form", object: @day %>
+
+				<div id="Monday" class="days">
+					<%= render @week.tasks.where(day: "Monday") %>
+				</div>
+		</div>
+
+		<div class="col-xs-3">
+			<h2> Tuesday </h2>
+			<% @day = "Tuesday"%>
+			<%= render "tasks/form", object: @day %>
+				<div id="Tuesday" class="days">
+					<%= render @week.tasks.where(day: "Tuesday") %>
+				</div>
+		</div>
+
+		<div class="col-xs-3">
+			<h2> Wednesday  </h2>
+			<% @day = "Wednesday" %>
+			<%= render "tasks/form", object: @day %>
+			<div id= "Wednesday" class="days">
+				<%= render @week.tasks.where(day: "Wednesday") %>
+			</div>
+		</div>
+
+		<div class="col-xs-3">
+			<h2> Thursday </h2>
+			<% @day = "Thursday" %>
+			<%= render "tasks/form", object: @day %>
+			<div id= "Thursday" class="days">
+				<%= render @week.tasks.where(day: "Thursday") %>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="days_bucket">
+
+		<div class="col-xs-4">
+			<h2> Friday </h2>
+			<% @day = "Friday" %>`
+			<%= render "tasks/form", object: @day %>
+			<div id="Friday" class="days">
+				<%= render @week.tasks.where(day: "Friday") %>
+			</div>
+		</div>
+
+		<div class="col-xs-4">
+			<h2> Saturday </h2>
+			<% @day = "Saturday" %>
+			<%= render "tasks/form", object: @day %>
+			<div id="Saturday" class="days">
+				<%= render @week.tasks.where(day: "Saturday") %>
+			</div>
+		</div>
+
+		<div class="col-xs-4">
+			<h2> Sunday </h2>
+			<% @day = "Sunday" %>
+			<%= render "tasks/form", object: @day %>
+			<div id="Sunday" class="days">
+				<%= render @week.tasks.where(day: "Sunday") %>
+			</div>
+		</div>
+	</div>

@@ -1,0 +1,36 @@
+<% provide(:title, 'Sign up') %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-offset-3 col-md-6 col-xs-12">
+			<h1 class="text-center">Sign up</h1>
+			<%= form_for(@user) do |f| %>
+			<%= render 'shared/error_messages' %>
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+
+			<%= f.label :phone_Number %>
+			<%= f.text_field :number %>
+
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+
+			<%= f.label :password_confirmation, "Confirmation" %>
+			<%= f.password_field :password_confirmation %>
+
+			<%= f.submit "Create my account", class: "btn signup_btn2", style: "margin-top: 30px;" %>
+			<% end %>
+			<p>Already have an account? <%= link_to "Sign in", signin_path, class:"link" %></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-offset-3 col-md-6 col-xs-12">
+
+		<p class="quote"> “Organization isn't about perfection; it's about efficiency, reducing stress and clutter, saving time and money and improving your overall quality of life.”</p>
+		<p class="pull-right christina"> - Christina Scalise </p> 
+	</div>
+	</div>
+</div>

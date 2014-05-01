@@ -1,0 +1,12 @@
+<% if task.tags.blank? %>
+  <span class="ib hidden tagsdiv<%= task.id %> tagsdiv">
+<% else %>
+  <span class="ib tagsdiv<%= task.id %> tagsdiv">
+<% end %>
+  <% task.tags.each do |tag| %>
+    <span class="each_tag_container<%= tag.id %>_<%= task.id %>" >
+      <span class="<%= @diff %>" style="background-color: <%= tag.color %>;"> <%= tag.name %> </span>
+      <span class="x-button-tag ib" data-tagid="<%= tag.id %>"> </span>
+    </span>
+  <% end %>
+</span>

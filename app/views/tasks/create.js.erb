@@ -1,0 +1,55 @@
+console.log("in create");
+var day = '#<%= j @curr_day.day %>';
+// gives you the div of the new task
+var task = '#new_id_<%= @day_task.id %>'
+// id of form in order to clear opacity of importance button on initial task creation form
+var form_id = '#form<%= @curr_day.id %>'
+var timepicker_id = '#timepicker<%= @day_task.id %>'
+
+// need to prepend task to daydiv first in order for addTimepickerAfter to work
+$(day).prepend('<%= j render(@day_task) %>');
+
+console.log(timepicker_id);
+
+// does this
+addTimeOnTimepickerAfter($(timepicker_id));
+
+//addTimeOnTimepickerAfter($());
+
+
+var data = $(day).sortable('serialize');
+var urlOrdering = $(day + " :first-child").attr('data-ordering');
+updateOrdering(data, urlOrdering);
+
+// clearing opacity on importance button
+$(form_id).find("img").removeClass('opacity_full');
+$(form_id)[0].reset();
+
+var timepickerInput = "#timepickerBefore" + "<%= @curr_day.id %>";
+console.log(timepickerInput);
+$(timepickerInput).val("");
+
+console.log($('#more<%= @day_task.id %>'));
+
+moreDOMFunctionality($('#more<%= @day_task.id %>'));
+
+//console.log($(timepicker_id).closest('.holder').next('.inline-reminder'));
+updateDueAt($(timepicker_id));
+//console.log('#no-dueat'+'<%= @day_task.id %>');
+noDueAt($('#no-due-at'+'<%= @day_task.id %>'));
+editTask($(task));
+completeClicked($('#complete'+ '<%= @day_task.id %>'));
+
+addLabelsDivToggle($(task).find('.add_labels_plus'));
+
+<% if @day_task.important == true %>
+	$(task).css('border', '2px solid red');
+	$(task).find('.status').text('IMPORTANT');
+	var importantBtn = '#exclamation' + '<%= @curr_day.id %>'
+	$(importantBtn).removeClass('opacity_full');
+<% end %>
+
+extendSpecialDivTasks($('.specialdaydiv').height(), $('.tagdiv').height());
+
+ toggleOpacity($(".exclamation-exist"));
+ toggleOpacity($(".mailOpacity"));

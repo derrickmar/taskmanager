@@ -1,0 +1,16 @@
+Debugging Ajax
+
+Calling this method produces a hash that can be appended to any url to easily submit a new item order back to the server.
+"setname[]=number&setname[]=number"
+
+The dataType param in jQuery specifies in what format you expect the anwser to be
+
+contentType is the header sent to the server, specifying a particular format.
+Example: I'm sending json or XML
+dataType is you telling jQuery what kind of response to expect.
+Expecting JSON, or XML, or HTML, etc....the default it for jQuery to try and figure it out.\
+
+
+render nothing: true
+
+take a look at the game act_as_list??

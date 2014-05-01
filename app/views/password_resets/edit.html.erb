@@ -1,0 +1,14 @@
+<%= puts params %>
+<div class="col-md-offset-3 col-md-6 col-xs-12">
+  <h1 class="text-center">Reset password</h1>
+  <%= form_for @user, :url => password_resets_path(params[:format]) do |f| %>
+  <%= render 'shared/error_messages' %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit "Update Password", class: "btn signup_btn2", style: "margin-top: 30px;" %>
+  <% end %>
+</div>

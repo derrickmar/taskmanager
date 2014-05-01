@@ -1,0 +1,487 @@
+Snippets
+----------------------------
+Help snippets
+  
+      <h3 class="bold"> Compatibility </h3>
+    <p> Tasksimply is currently compatible with: </p>
+              <li><%= link_to "Help", help_path, class: "a-head" %></li>
+    
+
+------------------------------
+
+          <% @tasks.each do |task| %>
+        <% if task.overdue == true %>
+
+          <% if task.important == true %>
+            <%= render task, object: @style = "background-color: lightcoral; border: 2px solid red;", object: @type = "OVERDUE!" %>
+          <% else %>
+            <%= render task, object: @style = "background-color: lightcoral; border: none;", object: @type = "OVERDUE!" %>
+          <% end %>
+
+        <% end %>
+      <% end %>
+
+      <div class="wrap">    
+        <label for="recieve">
+          <input id="recieve_email" name="recieve_email" type="checkbox" value="true" class="checkbox">
+          Recieve daily e-mail reminders of today's and overdue tasks
+        </label>
+      </div>
+
+
+
+    <div class="item pull-left">
+  <%= check_box_tag 'recieve_email', true %>
+  <label for="recieve_email pull-left">Recieve daily e-mail reminders of today's and overdue tasks</label>
+</div>
+
+</div>
+
+
+     <div class="error_messages">
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+
+
+   <li><%= link_to "Happy", twilio_message_path, class: "a-head", method: :post%></li>
+
+  <span class="smsdesc"> Please enter your phone number to receive reminders through sms </span>
+  <%= form_for(@user, url: number_user_path(@user), html: { class: 'form-inline smsformstyle', role: 'form' }, remote: true) do |f| %>
+    <%= render 'shared/error_messages' %>
+
+    <div class="form-group">
+    <%= f.text_field :number %>
+    </div>
+    <button class="save-sms btn-xs btn-default" name="commit" type="submit"> Save </button>
+  <% end %>
+  <span class="x-button ib"> </span>
+  <div>
+    <p class="updated hidden"> Updated! </p>
+</div>
+
+
+
+      <div class="container">
+          <video width="320" height="240" controls autoplay>
+            <source src="app/assets/videos/task_simply.mp4" type="video/mp4">
+            <object data="/assets/videos/task_simply.mp4" width="320" height="240">
+              <embed width="320" height="240" src="movie.swf">
+            </object>
+        </video>
+      </div>
+  
+  gravatar stuff
+    <!--    <%= #gravatar_for @user %>
+    <a href="http://gravatar.com/emails">change</a> -->
+
+  // -webkit-transition: border 0.30s ease-in-out;
+  // -moz-transition: border 0.30s ease-in-out;
+  // -ms-transition: border 0.30s ease-in-out;
+  // -o-transition: border 0.30s ease-in-out;
+  
+<span class="smsdesc"> Please enter your phone number to receive reminders through sms </span>
+  <%= form_for(@user, url: number_user_path(@user), html: { class: 'form-inline smsformstyle', role: 'form' }, remote: true) do |f| %>
+    <%= render 'shared/error_messages' %>
+
+    <div class="form-group">
+    <%= f.text_field :number %>
+    </div>
+    <button class="save-sms btn-xs btn-default" name="commit" type="submit"> Save </button>
+  <% end %>
+  <span class="x-button ib"> </span>
+  <div>
+    <p class="updated hidden"> Updated! </p>
+  </div>
+
+        var task_text = $(this).find('.task_text')
+
+
+  <%= form_tag next_seven_days_user_path, :method => 'get', :id => "tags_search" do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <% end %>
+
+
+
+<p>
+  <%= f.submit %>
+</p>
+
+<p>
+  <%= f.text_field :description, placeholder: "New Task:" %>
+</p>
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation"
+  <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "Task Manager", root_path, class: "navbar-brand", id: "logo" %>
+      </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+
+        <% if signed_in? %>
+          <li><%= link_to "Tasks", next_seven_days_user_path(current_user.id) %></li>
+          <% end %>
+          <li><%= link_to "Contact/About", help_path %></li>
+          <li><%= link_to "Help", help_path %></li>
+          <li><%= link_to "Happy", twilio_message_path, method: :post%></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+      
+        <% if signed_in? %>
+          <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", current_user %></li>
+              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Sign out", signout_path, method: "delete" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+         <li><%= link_to "Sign in", signin_path %></li>
+        <% end %>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+<li><%= link_to "Users", users_path %></li>
+
+<header class="navbar navbar-fixed-top navbar">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <%= link_to "Task Manager", root_path, class: "navbar-brand", id: "logo" %>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Home", root_path %></li>
+          <!-- if logged in!! -->
+          <% if signed_in? %>
+          <li><%= link_to "Tasks", next_seven_days_user_path(current_user.id) %></li>
+          <% end %>
+          <li><%= link_to "Help", help_path %></li>
+          <li><%= link_to "Happy", twilio_message_path, method: :post%></li>
+
+
+          <% if signed_in? %>
+          <li><%= link_to "Users", users_path %></li>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Account <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Profile", current_user %></li>
+                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to "Sign out", signout_path, method: "delete" %>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+           <li><%= link_to "Sign in", signin_path %></li>
+          <% end %>
+
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+
+<span class="each_tag_container<%= tag.id %>_<%= task.id %>" >
+  <span class="each_tag" style="background-color: <%= tag.color %>;"> <%= tag.name %> </span>
+  <span class="x-button-tag ib" data-tagid="<%= tag.id %>"> </span>
+</span>
+
+var content = '<span class="holder-tag>" 
+  <span class="each_tag" style="background-color: <%= @existing_tag.color %>;"> <%= @existing_tag.name %> </span>
+  <span class="x-button-tag ib"> </span>
+</span>';
+
+before_save { 
+    password=(self.password)
+    puts "+++++++++++"
+    puts self.password
+     }
+
+ <%= form_for([@curr_day, task], url: important_day_task_path(@curr_day, task),
+          html: { method: "patch", class: "important_form" },
+          remote: true) do |f| %>
+        <%= f.hidden_field :important, id: "importanthf" + task.id.to_s, value: @importance %>
+          class: "exclamation-exist " + @opacity, title: "Priority" %>
+<% end %>
+
+var existing = <%= @existing_tag.name %> + ""
+console.log(<%= @existing_tag.name %>)
+console.log("end")
+
+// var image = '<div class="tag" style="float: left;"> </div>';
+// var thetag = '<p style="float: left; color: <%= @tag.color %>;"> <%= @tag.name %> </p>';
+// $(id).append(image);
+// $(id).append(thetag);
+
+A tag has many tasks. A task belongs to a tag
+
+
+class ChangeTagTasksModel < ActiveRecord::Migration
+    def change
+        change_table :tags_tasks do |t|
+            t.change :task_id, :belongs_to
+            t.change :tag_id, :belongs_to
+        end
+    end
+end
+          
+add_column :tweets, :category_name,:string 
+
+    <% task.tags.each do |tag| %>
+      <div class="tag" style="float: left;"> </div>
+      <p style="float: left;"> <%= tag.name %> </p>
+    <% end %>
+
+
+                  <div class="input-append bootstrap-timepicker pull-left">
+            <input class="timepickerAll timepickerAfter input-small" type="text"
+            id = "timepicker<%= task.id %>"
+            data-url="/days/<%= @curr_day.id %>/tasks/<%= task.id %>/time"
+            data-due-at=
+            <% if task.due_at != nil %>
+            "<%= task.due_at.strftime("%I:%M%p")+ " " +task.due_at.strftime("%P").upcase %>"
+            <% else %>
+            "NONE"
+            <% end %>
+            >
+            <span class="add-on add-on-custom" title="Set a reminder">
+              <i class="clock clock-position"></i>
+            </span>
+          </div>
+
+      <span class="inline-reminder">
+        <% if task.due_at != nil %>
+        <%= task.due_at.strftime("%I:%M") + " " + task.due_at.strftime("%P").upcase %>
+        <% end %>
+      </span>
+
+           <input type="text" value=" <%= task.description %>" readonly="true" ondblclick="this.readOnly='';">
+        
+        <div data-sprites="<%= @curr_day.id %>">
+        <%= form_for([@curr_day, task], url: important_day_task_path(@curr_day, task),
+        html: { method: "patch", class: "important_form" + task.id.to_s },
+        remote: true) do |f| %>
+          <%= f.hidden_field :important, id: "importanthf" + task.id.to_s, value:false %>
+          <%= f.submit "Important?", type: :image, src: "/assets/exclamation.png",
+          class: "exclamation-exist opacity_full" %>
+        <% end %>
+        <div class="input-append bootstrap-timepicker pull-left">
+          <input class="timepickerAll timepickerAfter input-small" type="text"
+            id = "timepicker<%= task.id %>"
+            data-url="/days/<%= @curr_day.id %>/tasks/<%= task.id %>/time"
+            data-due-at=
+            <% if task.due_at != nil %>"<%= task.due_at.strftime("%I:%M%p") %>"
+            <% else %>"NONE"
+            <% end %>
+            >
+          <span class="add-on add-on-custom"><i class="clock clock-position"></i></span>
+        </div>
+        <a class="calendar" href="<%= gcal_link(task) %> title="Add to Google Calendar""
+          target="_blank" > </a>
+        <%= link_to " ", [@curr_day, task], method: :delete, class: "trash", remote: true %>
+    </div>
+
+
+
+      <%= link_to(complete_day_task_path(@curr_day, task, complete: true), method: :patch) do %>
+
+
+    , style: 'display: span;'
+
+    <div id="sample<%= task.id %>">
+      <!-- update important status -->
+      <%= form_for([@curr_day, task], url: important_day_task_path(@curr_day, task),
+                    html: { method: "patch", id: "important_form" + task.id.to_s },
+                    remote: true) do |f| %>
+        <%= f.hidden_field :important, value:true %>
+        <%= f.submit "", class: "exclamation" %>
+      <% end %>
+      </div>
+
+      <div id="sample<%= task.id %>">
+      <!-- update important status -->
+      <%= form_for([@curr_day, task], url: important_day_task_path(@curr_day, task), 
+                    html: { method: "patch", id: "unimportant_form" + task.id.to_s },
+                    remote: true) do |f| %>
+        <%= f.hidden_field :important, value:false %>
+        <%= f.submit "Unimportant?" %>
+      <% end %>
+    </div>
+
+Cool ajax I did to replace form
+    if ('true' == '<%=@task.important %>') {
+    $('.task_text<%= @task.id %>').css({ 'color': 'red'});
+    $('#important_form<%= @task.id %>').remove();
+    $('#sample<%= @task.id %>').append('<%= j render("unimportant") %>');
+} else {
+    $('.task_text<%= @task.id %>').css({ 'color': 'black'});
+    $('#unimportant_form<%= @task.id %>').remove();
+    $('#sample<%= @task.id %>').append('<%= j render("important") %>');
+}
+
+
+
+
+<%= #"id: " + task.id.to_s + " ordering: " + task.ordering.to_s %>
+
+<div class="todaytasks">
+    <%= render "users/todaydiv", object: @curr_day = @first_day, object: @today = "todaydiv" %>
+</div>
+
+
+var day_id = '#<%= j @curr_day.id %>';
+
+
+<div class="todaytasks">
+    <%= render "users/daydiv", object: @curr_day = @first_day, object: @column = 6,
+    object: @position = "col-xs-offset-3 text-center" %>
+</div>
+
+<div class="days_bucket">
+    <%= render "users/daydiv", object: @curr_day = @first_day %>
+    <%= render "users/daydiv", object: @curr_day = @second_day %>
+    <%= render "users/daydiv", object: @curr_day = @third_day %>
+    <%= render "users/daydiv", object: @curr_day = @fourth_day %>
+</div>
+<div class="days_bucket">
+    <%= render "users/daydiv", object: @curr_day = @fifth_day %>
+    <%= render "users/daydiv", object: @curr_day = @sixth_day %>
+    <%= render "users/daydiv", object: @curr_day = @seventh_day %>
+</div>
+
+      data += "&day_id[]=" + encodeURIComponent(this.id);
+
+      <div class="todaytasks">
+    <%= render "users/daydiv", object: @curr_day = @first_day %>
+</div>
+
+
+Creation snippets
+    For days
+        Day.create(day: "Monday", user_id: 1, week_id: 1)
+    Weeks
+        Week.create(user_id: 1)
+    Users
+        User.create(name: "Sample", email: "sample@example.com", password:"foobar", password_confirmation:"foobar")
+    Seven days snippet
+
+        seven_days = Day.where("date >= :start AND date < :end AND user_id = :user_id", id: userId, start: Date.today, end: 1.week.from_now.to_date, order: "date ASC")
+        return seven_days
+
+$(document).ready(function () {
+    $(function () {
+        $("#Monday, #Tuesday").sortable({
+            connectWith: ".days",
+            cursor: "move"
+        }).disableSelection();
+    });
+});            		// function to be called on success of ajax submission
+            		// it is an anonmyous callback function
+            		success: function(data) {
+            			console.log(data);
+            		}
+
+            		            	// shortcut for jQuery.ajax?
+            	$.ajax({
+            		data: data,
+            		type: 'POST',
+            			
+            	});
+
+
+request = $.ajax({
+	url: url,
+	type: "POST",
+        data: serializedData, // submitting the data
+        datatype: "JSON",
+        success: function(data) { // anon. callback
+        	console.log(data);
+
+        	if(data.success) {
+        		successHandler(data);
+        	} else {
+        		$('#formSuccess').addClass("Hidden");
+        		$('#formError').removeClass("Hidden");
+        		React.renderComponent (
+        			ErrorAlert({errors: data.errors}),
+        			document.getElementById('formError')
+        			);
+        	}
+        }
+    });
+
+
+   <li id="task_/weeks/<%= task.week.id %>/tasks/<%= task.id %>" >
+
+   <%= task.created_at.strftime("%d %b. %Y") %>
+
+<%= link_to "New Week", { action: :create },  method: "post" %>
+   
+   task_<%= task.day %>
+
+     def update
+    @week = Week.find(params[:week_id])
+    @task = Task.find(params[:id])
+    # puts "+++++"
+    # puts params
+    @task.update(params.permit(:complete))
+    redirect_to @week
+  end
+
+                data += "&day[]=" + encodeURIComponent(this.id);
+
+Complete link_to
+
+    <%= link_to( week_task_path(@week, task, complete: true), method: :patch) do %>
+
+          <p style="color:red"> <%= task.description %> </p>
+
+    <% end %>
+
+Task dates
+  <%= task.created_at %>
+  <%= task.created_at.strftime("%H:%M") %>
+
+
+
+    def gen_new_week_for_users
+        puts User.all
+        users = User.all
+        users.each do |user|
+            Week..create(user_id: user.id)
+        end
+    end

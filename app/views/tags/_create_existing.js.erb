@@ -1,0 +1,45 @@
+console.log("in create_existing.js.erb for tags!");
+var cls = ".tagsdiv" + <%= @task_to_associate.id %>;
+console.log(cls);
+
+var container = '<%= j render("each_tag", :tag => @existing_tag, :task => @task_to_associate) %>';
+$(cls).append(container);
+$(cls).removeClass('hidden');
+// console.log($(cls).children().last());
+var each_tag_container = ".each_tag_container<%= @existing_tag.id %>_<%= @task_to_associate.id %>"
+console.log(each_tag_container);
+//xbuttontagdelete($(xbutton));
+
+// stopped here REMEMBER TO DO .EACH and call xbuttontagdelete.
+$(each_tag_container).each(function() {
+	//console.log("MEEEEE");
+	var xbutton = $(this).children('.x-button-tag');
+	xbuttontagdelete($(xbutton));
+});
+
+var tag_form = "#tag_form" + "<%= @task_to_associate.id %>";
+// console.log(tag_form);
+$(tag_form)[0].reset();
+
+// $('.tag-search-holder').has
+
+var hasTagInHolder = false;
+$('.tag-search-desc').each(function() {
+	console.log("in tagholder func");
+	// console.log($(this).text());
+	// var name = '<%= @existing_tag.name %>';
+	// console.log(name.length);
+	console.log('new tag:' + $(this).text());
+	console.log('existing tag:' + '<%= @existing_tag.name %>');
+	if ($(this).text().trim() == '<%= @existing_tag.name %>') {
+		consolel.log('in here');
+		hasTagInHolder = true;
+		return false;
+	}
+});
+
+if (!hasTagInHolder) {
+	console.log("hasTagInHolder is false");
+	var tagSearchDesc = '<div class="tag-search-desc" style="background-color: <%= @existing_tag.color %>"> <%= @existing_tag.name %> </div>'
+	$('#tag-search-holder').append(tagSearchDesc);
+}

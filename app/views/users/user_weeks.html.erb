@@ -1,0 +1,12 @@
+<h1> Weeks </h1>
+<%= link_to "New Week",
+{:controller => "weeks",
+	:action => "create",
+	:user_id => @user.id },
+	:method => "post" %>
+
+	<% current_user.weeks.each do |week| %>
+	<ul>
+		<li> <%= link_to week.id, week %> </li>
+	</ul>
+	<% end %>

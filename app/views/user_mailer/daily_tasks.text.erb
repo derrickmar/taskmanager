@@ -1,0 +1,23 @@
+Hello <%= @user.name.split[0] %>,
+
+-----------------------------------------------------------------------------
+
+<%= pluralize(@overdue_tasks.length, 'task') %> OVERDUE
+
+<% @counter = 1 %>
+<% @overdue_tasks.each do |task| %>
+	<%= @counter %>.  <%= task.description %>
+	<% @counter += 1 %>
+<% end %>
+
+-----------------------------------------------------------------------------
+
+<%= pluralize(@today_tasks.length, 'task') %> TODAY
+<% @counter = 1 %>
+
+<% @today_tasks.each do |task| %>
+	<%= @counter %>.  <%= task.description %>
+	<% @counter += 1 %>
+<% end %>
+
+<%= user_url(@user) %>

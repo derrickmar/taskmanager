@@ -1,0 +1,56 @@
+<div class="specialdaydiv daydiv col-xs-12 col-sm-4 col-md-4 col-lg-<%= @col %> <%= @today %>" >
+<div class="day-name">
+	<% if @today == "today dayNameHeader" %>
+		<h3 class="inline"> Today </h3>
+	<% elsif @today == "tomorrow" %>
+		<h3 class="inline dayNameHeader"> Tomorrow </h3>
+	<% else %>
+		<h3 class="inline dayNameHeader"> <%= @curr_day.day %> </h3>
+	<% end %>
+	<span class="sprites" data-sprites="<%= @curr_day.id %>">
+  <!-- <div class="note noteInitial"> </div> -->
+		<span class="input-append input-appendBefore bootstrap-timepicker input-group input-group-sm">				
+			<input class="timepickerAll timepickerBefore input-smallBefore form-control" id="timepickerBefore<%= @curr_day.id %>" type="text" data-dayid="<%= @curr_day.id %>">
+			<span class="input-group-addon add-on add-on-custom dueat-launch">
+				<i class="glyphicon glyphicon-time movedown2"></i>
+			</span>
+		</span>
+</span>
+
+<span class="ib pull-right">
+	<label class="label-edit" for="task_important<%= @curr_day.id %>">
+		<img src="<%= asset_path('exclamation.png') %>", class="exclamation-Before", id="exclamation<%= @curr_day.id %>" />
+	</label>
+</span>
+</div>
+
+<%= render "tasks/form", locals: { curr_day: @curr_day }  %>
+
+	<div id="<%= @curr_day.day %>" class="days" data-dayid="<%= @curr_day.id %>">
+		<% @tasks = @curr_day.tasks.where(day_id: @curr_day.id) %>
+		<% @tasks.each do |task| %>
+				<% if task.overdue == true %>
+
+					<% if task.important == true %>
+						<%= render task, object: @style = "background-color: lightcoral; border: 2px solid red;", object: @type = "OVERDUE!" %>
+					<% else %>
+						<%= render task, object: @style = "background-color: lightcoral; border: none;", object: @type = "OVERDUE!" %>
+					<% end %>
+
+				<% end %>
+			<% end %>
+
+		<% @tasks.each do |task| %>
+			<% if task.overdue == false %>
+
+				<% if task.important == true %>
+					<%= render task, object: @style = "border: 2px solid red;", object: @type = "IMPORTANT!" %>
+				<% else %>
+					<%= render task, object: @type = "" %>
+				<% end %>
+
+			<% end %>
+		<% end %>
+	</div>
+
+</div>
