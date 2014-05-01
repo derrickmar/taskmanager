@@ -78,6 +78,14 @@ TaskManager::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+   # configuring action mailer to work on development environment
+  # this will tell the mailer which host to use
+  config.action_mailer.default_url_options = { :host => 'http://tasksimply.herokuapp.com/' }
+  # raise an excpetion if delivery fails.
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.delivery_method = :smtp
+
   # E-mail configuration
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
