@@ -185,6 +185,7 @@ class UsersController < ApplicationController
 			start: Date.today,
 		end: 1.week.from_now.to_date,
 		order: "date ASC")
+		puts "if seven_days has count 7 then it is good: " + seven_days.count.to_s
 		return seven_days
 	end
 
