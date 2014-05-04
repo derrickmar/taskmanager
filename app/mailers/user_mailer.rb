@@ -16,7 +16,7 @@ class UserMailer < ActionMailer::Base
   # e-mails users of today's and overdue tasks
   def daily_tasks(user, today_tasks, overdue_tasks)
     @user = user
-    @today_tasks = today_tasks
+    @today_tasks = today_tasks.where(overdue: false)
     @overdue_tasks = overdue_tasks
     mail to:  "#{user.name} <#{user.email}>", subject: "TaskSimply Daily Update"
   end
