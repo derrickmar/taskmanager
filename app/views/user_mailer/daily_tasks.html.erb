@@ -1,0 +1,25 @@
+<p><strong>Hello <%= @user.name.split[0] %>,</strong></p>
+
+<h3 style="color: red;">OVERDUE: <%= pluralize(@overdue_tasks.length, 'task')%></h3>
+
+<ul>
+<% @counter = 1 %>
+<% @overdue_tasks.each do |task| %>
+	<li style="color: red;">
+		<%= task.description %>
+	</li>
+<% end %>
+</ul>
+
+<h3>TODAY: <%= pluralize(@today_tasks.length, 'task')%></h3> 
+<% @counter = 1 %>
+
+<ul>
+<% @today_tasks.each do |task| %>
+	<li>
+	<%= task.description %>
+  </li>
+<% end %>
+</ul>
+
+<p><%= link_to "Go to tasks", root_url + next_seven_days_user_path(@user.id)%></p>

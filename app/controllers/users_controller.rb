@@ -54,6 +54,7 @@ class UsersController < ApplicationController
 		puts "IN next_seven_days ACTION OF USERS"
 		#puts "current user: " + current_user.id.to_s
 		@next_seven = get_next_seven_days(current_user.id)
+		puts @next_seven
 		@first_day = @next_seven[0]
 		@second_day = @next_seven[1]
 		@third_day = @next_seven[2]
@@ -63,18 +64,6 @@ class UsersController < ApplicationController
 		@seventh_day = @next_seven[6]
 
 		@tags = get_tags_for_next_seven_days(@next_seven)
-
-		# @overdue_tasks.each do |task|
-		# 	overdue_tags = task.tags
-		# 	overdue_tags.each do |tag|
-		# 		if !@tags.include?(tag)
-		# 			@tags << tag
-		# 		end
-		# 	end
-		# end
-
-		# get tasks from th e next seven days.
-		# add overdue tasks to that
 	end
 
 	# is there really a need for this? Answer right now: no
@@ -146,6 +135,7 @@ class UsersController < ApplicationController
 	def update
 		params[:user][:email] = params[:user][:email].strip
 		params[:user][:name] = params[:user][:name].strip
+		puts params
 		if @user.update_attributes(user_params)
 			flash[:success] = "Profile updated"
 			redirect_to edit_user_path
@@ -186,7 +176,7 @@ class UsersController < ApplicationController
 
 	def get_next_seven_days(userId)
 		puts "IN get_next_seven_days"
-		puts userId.to_s
+		puts "userId: " + userId.to_s
 		seven_days = Day.where("date >= :start AND date < :end AND user_id = :user_id",
 			user_id: userId,
 			start: Date.today,

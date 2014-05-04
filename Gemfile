@@ -72,6 +72,7 @@ gem 'jquery-ui-rails'
 gem 'turbolinks', '1.1.1'
 # for json stuff
 gem 'jbuilder', '1.0.2'
+# for environmental variables (hide from git)
 gem 'figaro'
 
 group :doc do
