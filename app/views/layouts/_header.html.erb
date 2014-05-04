@@ -20,7 +20,7 @@
         <% if signed_in? %>
           <li id="fat-menu" class="dropdown">
             <a href="#" class="dropdown-toggle a-head account" data-toggle="dropdown">
-              <img alt="Square badge polo" class="profile_pic_header" src="http://s3.amazonaws.com/tasksimply2/users/avatars/000/000/006/thumb/square_badge_polo.jpg">
+            <%= image_tag current_user.avatar.url(:thumb), class: "profile_pic_header" %>
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu dropdown-menu-header">
