@@ -42,6 +42,9 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (4.0.2)
+    aws-sdk (1.39.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     bcrypt-ruby (3.1.2)
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
@@ -131,7 +134,7 @@ GEM
       multi_json (>= 1.5)
     ledermann-rails-settings (2.3.0)
       activerecord (>= 3.1)
-    listen (2.7.3)
+    listen (2.7.4)
       celluloid (>= 0.15.2)
       celluloid-io (>= 0.15.0)
       rb-fsevent (>= 0.9.3)
@@ -206,7 +209,7 @@ GEM
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
     rubyzip (0.9.9)
-    sass (3.3.6)
+    sass (3.3.7)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
@@ -267,6 +270,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  aws-sdk
   bcrypt-ruby (= 3.1.2)
   bootstrap-sass (~> 3.1.1)
   bootstrap-timepicker-rails!

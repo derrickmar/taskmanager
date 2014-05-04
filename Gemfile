@@ -22,6 +22,8 @@ gem 'bootstrap-timepicker-rails', :require => 'bootstrap-timepicker-rails',
 gem 'ledermann-rails-settings', :require => 'rails-settings'
 # for file attachment
 gem "paperclip", "~> 4.1"
+# for file storage on aws
+gem 'aws-sdk'
 
 # for e-mails
 gem 'mail_form'
