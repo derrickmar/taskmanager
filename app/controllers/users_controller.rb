@@ -54,7 +54,10 @@ class UsersController < ApplicationController
 		puts "IN next_seven_days ACTION OF USERS"
 		#puts "current user: " + current_user.id.to_s
 		@next_seven = get_next_seven_days(current_user.id)
-		puts @next_seven
+		@next_seven.each do |day|
+			puts day.day + "id: " + day.id.to_s
+		end
+		puts "count: " + @next_seven.count.to_s
 		@first_day = @next_seven[0]
 		@second_day = @next_seven[1]
 		@third_day = @next_seven[2]
