@@ -6,7 +6,7 @@
 		<%= render 'shared/error_messages' %>
 		<%= form_for(@user, html: { multipart: true, class: 'form-inline' }) do |f| %>
 		<div class="pp-holder">
-			<%= image_tag @user.avatar.url(:medium), class: "profile_pic" %>
+			<%= image_tag @user.avatar.url(:thumb), class: "profile_pic" %>
 			<div class="move-pp-upload">
 				<%= f.label :profile_picture %>
 				<%= f.file_field :avatar %>
