@@ -398,6 +398,7 @@ function resizeCreateTaskTextAreaInit(dom) {
 
 function textAreaAdjust(o) {
     console.log("in textAreaAdjust");
+    console.log(o);
     o.style.height = "1px";
     o.style.height = (o.scrollHeight + 2) + "px";
     console.log(o.style.height);
@@ -462,7 +463,7 @@ function editTask(dom) {
         // THIS HAS TO BE AFTER replacewith because the it is actually loaded
         v = replacement.val();
         $(replacement).focus().val("").val(v);
-        //if (editTaskClicked) {
+        textAreaAdjust(replacement.get(0));
             $(document).mouseup(function(e) {
                 if (editTaskClicked) {
                     console.log("here in mouseup!")

@@ -12,7 +12,7 @@
     }
 
     @client = Twilio::REST::Client.new(TaskManager::Application.config.twilio_sid,
-                                       TaskManager::Application.config.twilio_token)
+                                        TaskManager::Application.config.twilio_token)
 
     tasks.each do |t|
       body = "Reminder: " + t.description

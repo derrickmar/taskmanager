@@ -31,7 +31,7 @@ module UsersHelper
 		user = User.find(userId)
 		days_before_tomorrow = user.days.where("date < :start", start: Date.tomorrow).order("date ASC")
 		days_before_tomorrow.each do |day|
-			tasks = day.tasks.where(overdue: true)
+			tasks = day.tasks.where(overdue: true, complete: false)
 			tasks.each do |task|
 				list_of_overdue << task
 			end
