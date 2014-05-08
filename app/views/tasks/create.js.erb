@@ -53,3 +53,7 @@ extendSpecialDivTasks($('.specialdaydiv').height(), $('.tagdiv').height());
 
  toggleOpacity($(".exclamation-exist"));
  toggleOpacity($(".mailOpacity"));
+
+ // for reseting textarea
+var ta = "#initial-input<%= @curr_day.id %>";
+resetTextArea($(ta));

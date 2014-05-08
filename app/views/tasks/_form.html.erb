@@ -1,7 +1,7 @@
 <%= form_for([@curr_day, @curr_day.tasks.build], html: { id: "form" + @curr_day.id.to_s }, remote: true) do |f| %>
 
 
-<%= f.text_area :description, class: "initial-input", placeholder: "New Task:" %>
+<%= f.text_area :description, class: "initial-input", id: "initial-input" + @curr_day.id.to_s, placeholder: "New Task:" %>
 
 <input class="hidden" type="checkbox" id="task_important<%= @curr_day.id %>" name="task[important]" value="1">
 

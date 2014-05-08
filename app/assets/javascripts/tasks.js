@@ -653,3 +653,8 @@ function fixTaskHoverIssues(dom) {
             )
     });
 }
+
+function resetTextArea(ta) {
+    console.log("reseting the text area");
+    ta.get(0).rows = 1;
+}
