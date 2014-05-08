@@ -46,27 +46,31 @@ class UsersController < ApplicationController
 	# end
 
 	def next_seven_days
-		@user = User.find(params[:id])
-		# @overdue_tasks = overdue_tasks(@user.id)
-		puts "calling overdue_tasks"
-		set_overdue_tasks(@user.id)
-		# puts @overdue
-		puts "IN next_seven_days ACTION OF USERS"
-		#puts "current user: " + current_user.id.to_s
-		@next_seven = get_next_seven_days(current_user.id)
-		@next_seven.each do |day|
-			puts day.day + " id: " + day.id.to_s
-		end
-		puts "count: " + @next_seven.count.to_s
-		@first_day = @next_seven[0]
-		@second_day = @next_seven[1]
-		@third_day = @next_seven[2]
-		@fourth_day = @next_seven[3]
-		@fifth_day = @next_seven[4]
-		@sixth_day= @next_seven[5]
-		@seventh_day = @next_seven[6]
+		if signed_in?
+			@user = User.find(current_user.id)
+			# @overdue_tasks = overdue_tasks(@user.id)
+			puts "calling overdue_tasks"
+			set_overdue_tasks(@user.id)
+			# puts @overdue
+			puts "IN next_seven_days ACTION OF USERS"
+			#puts "current user: " + current_user.id.to_s
+			@next_seven = get_next_seven_days(current_user.id)
+			@next_seven.each do |day|
+				puts day.day + " id: " + day.id.to_s
+			end
+			puts "count: " + @next_seven.count.to_s
+			@first_day = @next_seven[0]
+			@second_day = @next_seven[1]
+			@third_day = @next_seven[2]
+			@fourth_day = @next_seven[3]
+			@fifth_day = @next_seven[4]
+			@sixth_day= @next_seven[5]
+			@seventh_day = @next_seven[6]
 
-		@tags = get_tags_for_next_seven_days(@next_seven)
+			@tags = get_tags_for_next_seven_days(@next_seven)
+		else
+			redirect_to home_path
+		end
 	end
 
 	# is there really a need for this? Answer right now: no
