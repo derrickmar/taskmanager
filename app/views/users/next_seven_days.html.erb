@@ -1,5 +1,5 @@
 <!-- <i class="glyphicon glyphicon-chevron-up"></i> -->
-
+<% provide(:title, 'Tasks') %>
 <div class="attributes hidden" data-view="<%= @user.settings(:settings).view %>"
 	data-comp="<%= @user.settings(:settings).completed_hidden %>">
 </div>
@@ -27,7 +27,6 @@
 	<button type="button" id="toggleTagDiv" class="btn hidden" data-user="<%=@user.id%>"> Show Tag Filter Form </button>
  </div>
 
-<div class="overflow">
 	<div class="row">
 		<div class="holder1">
 			<%= render "users/daydiv", object: @curr_day = @first_day,
@@ -45,13 +44,10 @@
 				</div>
 			</div>
 	</div>
-</div>
 
-<div class="overflow">
 	<div class="holder2 row">
 		<%= render "users/daydiv", object: @curr_day = @fourth_day, object: @col = 3, object: @today = "not_today" %>
 		<%= render "users/daydiv", object: @curr_day = @fifth_day %>
 		<%= render "users/daydiv", object: @curr_day = @sixth_day %>
 		<%= render "users/daydiv", object: @curr_day = @seventh_day %>
 	</div>
-</div>
