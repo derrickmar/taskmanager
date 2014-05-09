@@ -13,7 +13,7 @@
 class Tag < ActiveRecord::Base
 	has_and_belongs_to_many :tasks, join_table: "tasks_tags"
 	belongs_to :user
-	validates_uniqueness_of :name, scope: :user_id
+	validates :name, uniqueness: { scope: :user_id, case_sensitive: false }
 	#validates_uniqueness_of :name, scope: :task_id
 	validates :user_id, presence: true
 	#validates :task_id, presence: true

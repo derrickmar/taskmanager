@@ -10,8 +10,6 @@ var task = '#new_id_<%= @day_task.id %>'
 var form_id = '#form<%= @curr_day.id %>'
 var timepicker_id = '#timepicker<%= @day_task.id %>'
 
- // for reseting textarea
-
 
 // need to prepend task to daydiv first in order for addTimepickerAfter to work
 $(day).prepend('<%= j render(@day_task) %>');

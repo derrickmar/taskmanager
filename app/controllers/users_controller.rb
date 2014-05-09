@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 	# end
 
 	def next_seven_days
-		if signed_in?
+		if signed_in? 
 			@user = User.find(current_user.id)
 			# @overdue_tasks = overdue_tasks(@user.id)
 			puts "calling overdue_tasks"

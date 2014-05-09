@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
-          <li><%= link_to "My Tasks", next_seven_days_user_path(current_user.id), class: "a-head" %></li>
+          <li><%= link_to "Tasks", next_seven_days_user_path(current_user.id), class: "a-head" %></li>
           <% end %>
         <% if signed_in? %>
           <li id="fat-menu" class="dropdown">

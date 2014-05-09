@@ -1,4 +1,11 @@
+var existingTagsArray = [];
+
 $(document).ready(function() {
+    $(".tag-search-desc").each(function() {
+        console.log("IN THE THING");
+        existingTagsArray.push($(this).text().trim());
+    });
+
     filterSearch($('#search-tags'));
     filterClick($('.tag-search-desc'));
     // setting the checkbox based on user last action
