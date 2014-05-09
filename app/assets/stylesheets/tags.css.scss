@@ -16,6 +16,11 @@
 	-khtml-border-bottom-right-radius: 3px;
 }
 
+.tagform-create {
+	overflow-y: auto;
+	padding: 0px !important;
+}
+
 .tagdiv {
 	// float: right !important;
 	// clear: none;
@@ -35,7 +40,7 @@
 	padding-right: 0px !important;
 }
 
-.tag-search-desc {
+.tag-search-desc, .tag-search-desc2 {
 	text-align:center;
 	color: white;
 	padding: 3px 0px;
@@ -44,10 +49,9 @@
 	-ms-transition: font-size 0.15s ease-in-out;
 	-o-transition: font-size 0.15s ease-in-out;
 	-webkit-backface-visibility: hidden;
-	// border-bottom: 1px solid #4C2F2E;
 }
 
-.tag-search-desc:hover {
+.tag-search-desc:hover, .tag-search-desc2:hover {
 	font-size: 16px;
 	cursor: pointer;
 }

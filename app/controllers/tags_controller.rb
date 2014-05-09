@@ -1,6 +1,4 @@
 class TagsController < ApplicationController
-	$color_chooser = 0
-
 	def index
 	end
 
@@ -12,7 +10,7 @@ class TagsController < ApplicationController
 		# make sure the task id and tag id are the from the original user?
 		puts params
 		@task_to_associate = Task.find(params[:tag][:task_id])
-		@name = params[:tag][:name].downcase
+		@name = params[:tag][:name].downcase.strip
 		@user_id = params[:tag][:user_id]
 		@existing_tag = Tag.all(:conditions => ["lower(name) = ? AND user_id = ?", @name, @user_id])[0]
 		# puts @existing_tag.name
@@ -34,20 +32,22 @@ class TagsController < ApplicationController
 				#redirect_to root_path
 			end
 		else
-			puts "NEW TAG"
+			@user = User.find(params[:tag][:user_id]);
 			length = TaskManager::Application::COLORS.length
-			if $color_chooser > length - 1
+			if @user.cc > length - 1
 				puts "reseting color_chooser"
-				$color_chooser = 0
-				@all_params = tag_params.merge(color: TaskManager::Application::COLORS[$color_chooser])
+				@user.update(cc: 0)
+				@all_params = tag_params.merge(color: TaskManager::Application::COLORS[@user.cc])
 			else 
-				@all_params = tag_params.merge(color: TaskManager::Application::COLORS[$color_chooser])
+				@all_params = tag_params.merge(color: TaskManager::Application::COLORS[@user.cc])
 			end
+			puts "NEW TAG"
+			puts @all_params
 			@tag = Tag.new(@all_params)
 			if @tag.save
-				puts "VALUE OF color_chooser before"
-				puts $color_chooser
-				$color_chooser = $color_chooser + 1
+				puts "VALUE OF color_counter before"
+				puts @user.cc
+				@user.update(cc: @user.cc + 1)
 				# puts "VALUE OF color_chooser"
 				# puts $color_chooser
 				@tag.tasks << @task_to_associate
@@ -74,6 +74,8 @@ class TagsController < ApplicationController
 	private
 	def tag_params
 		# will block task_id in create
-		params[:tag].permit(:name, :user_id, :color)
+		tag_pms = params[:tag].permit(:name, :user_id, :color)
+		tag_pms[:name] = tag_pms[:name].strip
+		return tag_pms
 	end
 end

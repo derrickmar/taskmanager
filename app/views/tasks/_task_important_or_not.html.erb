@@ -91,7 +91,17 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :task_id, value: task.id %>
 
-  <%= f.text_field :name, class: "labels_div_inp", placeholder: "Add a tag..." -%>
+  <%= f.text_field :name, class: "labels_div_inp", autocomplete: "off", placeholder: "Add a tag..." %>
+  <div class="tagform-create" >
+    <div class="tag-search-holder2">
+      <% @alltags.each do |tag| %>
+        
+        <div class="tag-search-desc2 hidden" style="background-color: <%= tag.color %>"><%= tag.name %></div>
+      <% end %>
+    </div>
+  </div>
+
+    <%= f.submit class: "hidden tag-create-submit" %>
   <% end %>
 
   <h6 class="add_labels_title"> Labels: </h6>

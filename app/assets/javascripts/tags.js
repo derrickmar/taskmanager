@@ -1,13 +1,14 @@
 var existingTagsArray = [];
 
 $(document).ready(function() {
-    $(".tag-search-desc").each(function() {
-        console.log("IN THE THING");
-        existingTagsArray.push($(this).text().trim());
-    });
+    // $(".tag-search-desc").each(function() {
+    //     console.log("IN THE THING");
+    //     existingTagsArray.push($(this).text().trim());
+    // });
 
-    filterSearch($('#search-tags'));
-    filterClick($('.tag-search-desc'));
+filterSearch($('#search-tags'));
+filterSearch2($('.labels_div_inp'));
+filterClick($('.tag-search-desc'));
     // setting the checkbox based on user last action
     var no_tags_shown = $('.no-tags-checkbox').attr('data-sett');
     $('.no-tags-checkbox').prop('checked', true);
@@ -21,6 +22,8 @@ $(document).ready(function() {
             return jQuery(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
         };
     });
+
+    tagSearchOnCreate($('.tag-search-desc2'));
 
 });
 
@@ -55,8 +58,16 @@ function extendSpecialDivTasks(sdheight, tdheight) {
 }
 
 
-// what does this do?
+function tagSearchOnCreate(dom) {
+    dom.click(function() {
+        // console.log($(this).closest('.labels_div_inp'));
+        $(this).closest('.tagform-create').siblings('.labels_div_inp').val($(this).text().trim());
+        $(this).closest('.tagform-create').siblings('.tag-create-submit').click();
+        $('.tag-search-desc2').addClass("hidden");
+    });
+}
 
+// what does this do?
 function filterSearch(dom) {
     dom.keyup(function() {
         var value = $(this).val().toLowerCase();
@@ -64,6 +75,28 @@ function filterSearch(dom) {
         $('#tag-search-holder > div:not(:Contains(' + value + '))').hide();
         $('#tag-search-holder > div:Contains(' + value + ')').show();
     });
+}
+
+// autocomplete an new tag form
+function filterSearch2(dom) {
+    dom.keyup(function() {
+        console.log("in filterSearch2");
+        var value = $(this).val().toLowerCase();
+        console.log(value);
+        // this one is working
+        if (value != "") {
+            $('.tag-search-holder2 > div:not(:Contains(' + value + '))').addClass("hidden");
+            $('.tag-search-holder2 > div:Contains(' + value + ')').removeClass("hidden");
+        } else {
+            console.log(value);
+            $('.tag-search-desc2').addClass("hidden");
+        }
+        // $(".tag-search-holder-create > div:not(:Contains(aval))").addClass("hidden");
+        // $(".tag-search-holder-create > div:Contains(aval)").removeClass("hidden");
+        // $(".tag-search-desc").each(function() { 
+        //     $(this).removeClass("hidden");
+        // })
+});
 }
 
 // if the checkbox for no tags is clicked then toggle the class

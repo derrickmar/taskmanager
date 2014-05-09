@@ -68,6 +68,7 @@ class UsersController < ApplicationController
 			@seventh_day = @next_seven[6]
 
 			@tags = get_tags_for_next_seven_days(@next_seven)
+			@alltags = Tag.where(user_id: @user.id)
 		else
 			redirect_to home_path
 		end

@@ -11,6 +11,7 @@ class TasksController < ApplicationController
     # due_at is type string but Rails knows how to convert that to datetime when saved
     @day_task = @curr_day.tasks.build(task_params)
     if @day_task.save
+      @alltags = Tag.where(user_id: current_user.id)
       respond_to do |format|
         format.html { redirect_to next_seven_days_user_path(current_user.id) }
         format.js # no block because we are rendering create.js.erb

@@ -21,6 +21,7 @@
 
 .labels_div_inp {
 	border: 1px #BE2CBD solid !important;
+	margin: 0px !important;
 	background-color: #ffefff;
 }
 
@@ -29,13 +30,15 @@
 	position: absolute;
 	background: white;
 	padding: 5px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px; /* future proofing */
-	-khtml-border-radius: 3px; /* for old Konqueror browsers */
-	-moz-box-shadow:    1px 1px 2px 2px #ccc;
-	-webkit-box-shadow: 1px 1px 2px 2px #ccc;
-	box-shadow:         1px 1px 2px 2px #ccc;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px; /* future proofing */
+	-khtml-border-radius: 4px; /* for old Konqueror browsers */
+	border: 1px solid #cccccc;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	-moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	background-clip: padding-box;
 	z-index: 100;
 }
 

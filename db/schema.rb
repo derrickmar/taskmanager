@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429192347) do
+ActiveRecord::Schema.define(version: 20140509052450) do
 
   create_table "days", force: true do |t|
     t.string   "day"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20140429192347) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "cc",                     default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

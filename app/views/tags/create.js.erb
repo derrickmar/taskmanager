@@ -22,8 +22,11 @@ $(tag_form)[0].reset();
 
 var tagSearchDesc = '<div class="tag-search-desc ajax-filter-tag<%= @tag.id %>" style="background-color: <%= @tag.color %>"> <%= @tag.name %> </div>'
 $('#tag-search-holder').prepend(tagSearchDesc);
+var tagSearchDesc2 = '<div class="tag-search-desc2 hidden" style="background-color: <%= @tag.color %>"> <%= @tag.name %> </div>'
+$('.tag-search-holder2').append(tagSearchDesc2);
 
 filterClick($(".ajax-filter-tag<%= @tag.id %>"));
+
 
 
 // console.log($(cls).children().last().children('.x-button-tag'));

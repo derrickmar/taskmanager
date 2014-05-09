@@ -586,10 +586,10 @@ var justClickedRemove = false;
 
 // when removed is clicked it will hide the timepicker widget.
 // Also set due_at to nil and rerender the gcallink
-
 function removeClick(dom, callAjax) {
     dom.click(function() {
         console.log("in remove click");
+        console.log(callAjax);
         var inp = $(this).parent().siblings('input');
         if (callAjax) {
             $(this).closest('.bootstrap-timepicker-widget').hide();

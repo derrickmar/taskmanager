@@ -41,7 +41,7 @@ moreDOMFunctionality($('#more<%= @day_task.id %>'));
 //console.log($(timepicker_id).closest('.holder').next('.inline-reminder'));
 updateDueAt($(timepicker_id));
 //console.log('#no-dueat'+'<%= @day_task.id %>');
-noDueAt($('#no-due-at'+'<%= @day_task.id %>'));
+noDueAt($('#no-due-at'+'<%= @day_task.id %>'), true);
 editTask($(task));
 completeClicked($('#complete'+ '<%= @day_task.id %>'));
 
@@ -58,5 +58,14 @@ extendSpecialDivTasks($('.specialdaydiv').height(), $('.tagdiv').height());
 
  toggleOpacity($(".exclamation-exist"));
  toggleOpacity($(".mailOpacity"));
+ console.log("BEFORE");
+ console.log($(task).find('.remove'));
+
+filterSearch2($(task).find('.labels_div_inp'));
+
+tagSearchOnCreate($(task).find('.tag-search-holder2').children('.tag-search-desc2'));
+// removeClick($(task).find('.remove'), true);
+
+// tagSearchOnCreate($('.tag-search-desc2'));
 
 
