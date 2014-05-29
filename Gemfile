@@ -15,6 +15,7 @@ gem 'whenever', :require => false
 # formats things nicely on rails console
 gem 'hirb'
 gem 'twilio-ruby'
+# helps understand embedded ruby
 gem 'htmlbeautifier'
 gem 'bootstrap-timepicker-rails', :require => 'bootstrap-timepicker-rails',
 :git => 'git://github.com/tispratik/bootstrap-timepicker-rails.git'
