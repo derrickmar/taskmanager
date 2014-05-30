@@ -1,7 +1,9 @@
 source "https://rubygems.org"
 ruby "2.0.0"
 
-group :development do
+
+
+group :development, :test do
   gem "sqlite3", "~> 1.3"
   gem "rspec-rails", "~> 2.13"
   gem "guard-rspec", "~> 2.5"
@@ -11,12 +13,6 @@ group :development do
 end
 
 group :test do
-  gem "sqlite3", "~> 1.3"
-  gem "rspec-rails", "~> 2.13"
-  gem "guard-rspec", "~> 2.5"
-  gem "spork-rails", "~> 4.0"
-  gem "guard-spork", "~> 1.5"
-  gem "childprocess", "~> 0.3"
   gem "selenium-webdriver", "~> 2.35"
   gem "capybara", "~> 2.1"
   gem "factory_girl_rails", "~> 4.2"
