@@ -56,3 +56,4 @@ gem "jquery-ui-rails", "~> 4.2"
 gem "turbolinks", "~> 1.1"
 gem "jbuilder", "~> 1.0"
 gem "figaro", "~> 0.7"
+gem 'newrelic_rpm'
