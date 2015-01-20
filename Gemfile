@@ -36,7 +36,7 @@ gem "faker", "~> 1.1"
 gem "will_paginate", "~> 3.0"
 gem "bootstrap-will_paginate", "~> 0.0"
 gem "annotate", "~> 2.6"
-gem "sprockets", "~> 2.11"
+gem 'sprockets', '=2.11.0'
 gem "whenever", "~> 0.9", {:require=>false}
 gem "hirb", "~> 0.7"
 gem "twilio-ruby", "~> 3.11"
